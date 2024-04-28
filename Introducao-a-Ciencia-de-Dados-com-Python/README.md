@@ -759,3 +759,262 @@ Essa mensagem foi feita com quebra de página através do recurso de strings mú
 > Para saber mais sobre as funções com variáveis strings [Clique Aqui](https://docs.python.org/pt-br/3/library/string.html)
 > Material adicional [Aqui](https://docs.python.org/pt-br/3/library/stdtypes.html#textseq
 ).
+
+# **Python Desafios**
+
+
+## **1. INVERTER O VALOR DAS VARIÁVEIS A E B**
+A proposta do desafio foi entender a atribuição de valores de variáveis no python. Com isso o desafio é inverter o valor da variável A e B que o usuário declarar. A seguir foi descrito o passo a passo do código e sua explicação.
+
+### Parte 1 - Declaração de variáveis
+Para que seja possível realizar a operação precisamos declarar o valor de A e B. Para isso no código desenvolvido a seguir utilizamos o comando de input para que o usuário consiga inserir os dados.
+
+```
+A = input("Escreva o valor da variável A: ")
+B = input("Escreva o valor da variável B: ")
+```
+
+### Parte 2 - Substituição de valores dentro das variáveis
+Para a substituição de valores adicionamos uma nova variável, com ela podemos atribuir o valor de A e logo atribuir a A o valor de B, após isso retornamos o valor de B para a variável A e assim foi feita a atribuição.
+```
+C = A
+A = B
+B = C
+```
+O cálculo foi feito desta forma pois sem uma terceira variável ao tentar atribuir `A = B` por exemplo nós perdemos o valor de A, e não conseguiríamos realizar a transferência seguinte de `B = A`.
+
+### Parte 3 - Declaração de resultados
+
+Para a declaração dos resultados para o usuário foi utilizada a função print e atribuída a variável texto a mensagem com formatação de f string:
+
+```
+texto = f"A variável A era igual a {C} e passou a ser {A}, já a variável B era {A} e passou a ser {B}."
+
+print(texto)
+```
+
+### **Código Completo**
+```
+#Declaração de variáveis
+A = input("Escreva o valor da variável A: ")
+B = input("Escreva o valor da variável B: ")
+
+#Operação de troca de valores
+C = A
+A = B
+B = C
+
+#Exibição do resultado para o usuário
+texto = f"A variável A era igual a {C} e passou a ser {A}, já a variável B era {A} e passou a ser {B}."
+print(texto)
+
+```
+> Para acessar o código no arquivo python do repósitório [Clique Aqui](https://github.com/aureaangelo/Bootcamp-Python-Data-Analytcs-DIO/blob/main/Introducao-a-Ciencia-de-Dados-com-Python/Python_Desafio_1-Inverter.py)
+
+
+
+
+
+
+## **2. CALCULAR O VALOR TOTAL DE VENDA**
+A proposta do desafio foi entender como realizar operações matemáticas entre variáveis numéricas definidas pelo usuário.
+
+### Parte 1 - Declaração de variáveis
+Para que seja possível realizar o cálculo é necessário encontrar o valor uniátio e a quantidade vendida. Para isso no código desenvolvido a seguir utilizamos o comando de input para que o usuário consiga inserir os dados.
+
+```
+preco = input("Informe o valor unitário do produto: ")
+
+quantidade = input("Informe a quantidade vendida: ")
+```
+
+### Parte 2 - Cálculo do valor total de venda
+Para o cáculo foi feita a multiplicação utilizando `*` e foi necessário converter os valores para float, evitando assim erros de conversão futuros.
+
+```
+valor_total_venda = float(preco) * float(quantidade)
+```
+
+### Parte 3 - Declaração de resultados
+
+Para a declaração dos resultados para o usuário foi utilizada a função print com formatação de f string:
+
+```
+print(f'O valor total da venda é de R$ {valor_total_venda}.')
+```
+
+### **Código Completo**
+```
+# Declaração de variáveis
+preco = input("Informe o valor unitário do produto: ")
+
+quantidade = input("Informe a quantidade vendida: ")
+
+# Cálculo do valor total de venda
+valor_total_venda = float(preco) * float(quantidade)
+
+# Declaração de resultados
+print(f'O valor total da venda é de R$ {valor_total_venda}.')
+
+```
+> Para acessar o código no arquivo python do repósitório [Clique Aqui](https://github.com/aureaangelo/Bootcamp-Python-Data-Analytcs-DIO/blob/main/Introducao-a-Ciencia-de-Dados-com-Python/Python_Desafio_2-Total_Venda.py)
+
+
+### Parte 1 - Declaração de variáveis
+Para que seja possível realizar o cálculo é necessário encontrar o valor total da compra e a quantidade de pessoas. Para isso no código desenvolvido utilizamos o comando de input para que o usuário consiga inserir os dados.
+
+```
+valor_compra = input("Informe o Valor Total da Compra: ")
+quantidade_pessoas = input("Informe a quantidade de pessoas: ")
+```
+
+
+### Parte 2 - Cálculo do valor inteiro da divisão
+Para a resolução do desafio primeiro precisamos descobrir qual o valor inteiro da divisão entre o valor da compra e a qauntidade de pessoas. Para isso vamos utilizar a divisão por inteiro com `//`, assim o resultado já virá exato.
+```
+valor_divisao_float = float(valor_compra) // int(quantidade_pessoas)
+print(valor_divisao_float)
+
+``` 
+
+### Parte 3 - Descobrir o valor restante
+Após a divisão precisamos descobrir quanto que sobrou para que seja somada a conta do primeiro integrante. Então fazemos uma subtração do valor total da compra pelo valor encontrado multiplicado a quantidade de pessoas.
+```
+centavos_restantes = float(valor_compra) - (valor_divisao_float * int(quantidade_pessoas))
+print(centavos_restantes)
+
+``` 
+### Parte 4 - Analizar se será divisão inteira ou alguém precisará pagar a mais
+Depois de descobrir o valor que cada integrante irá pagar, precisamos analizar se o primeiro integrante vai pagar a mais ou não, desse modo vamos utilizar a função if como a seguir:
+
+```
+if centavos_restantes > 0: 
+
+    print(f'Uma pessoa terá que pagar R$ {int(valor_divisao_float) + centavos_restantes} e o restante precisa pagar R$ {int(valor_divisao_float)}.')
+
+else:
+
+    print(f'Todos precisarão pagar R$ {int(valor_divisao_float)}.')
+```
+
+### **Código Completo:**
+```
+#Declaração de variáveis
+valor_compra = input("Informe o Valor Total da Compra: ")
+quantidade_pessoas = input("Informe a quantidade de pessoas: ")
+
+#Cálculo do valor inteiro da divisão
+valor_divisao_float = float(valor_compra) // int(quantidade_pessoas)
+print(valor_divisao_float)
+
+#Descobrir o valor restante
+centavos_restantes = float(valor_compra) - (valor_divisao_float * int(quantidade_pessoas))
+print(centavos_restantes)
+
+#Analizar se será divisão inteira ou alguém precisará pagar a mais
+if centavos_restantes > 0: 
+
+    print(f'Uma pessoa terá que pagar R$ {int(valor_divisao_float) + centavos_restantes} e o restante precisa pagar R$ {int(valor_divisao_float)}.')
+
+else:
+
+    print(f'Todos precisarão pagar R$ {int(valor_divisao_float)}.')
+```
+> Para acessar o código no arquivo python do repósitório [Clique Aqui](https://github.com/aureaangelo/Bootcamp-Python-Data-Analytcs-DIO/blob/main/Introducao-a-Ciencia-de-Dados-com-Python/Python_Desafio_3-Divisao_compra.py)
+
+
+
+
+
+## **4. CÁLCULO DE BHASKARA NO PYTHON**
+Para o quarto desafio foi escolhido realizar o cálculo de Bhaskara no phyton.
+A seguir foi descrito o passo a passo para a construção do código e sua explicação.
+
+
+
+### Parte 1 - Declaração de variáveis
+Para que seja possível realizar o cálculo precisamos declarar o valor de A, B e C. Para isso no código desenvolvido a seguir utilizamos o comando de input para que o usuário consiga inserir os dados.
+
+```
+A = input("Escreva o valor de A: ")
+B = input("Escreva o valor de B: ")
+C = input("Escreva o valor de C: ")
+```
+
+### Parte 2 - Cálculo de Delta
+Após a declaração das variáveis é importante calcular o valor de Delta `b² - 4 * A * C` para que possamos analizar se a equação terá solução ou não. Dessa forma calculamos o valor de delta da seguinte forma no python.
+```
+delta = (float(B)**2) - (4 * float(A) * float(C))
+print(Delta)
+
+``` 
+Para evitar erros de conversão é necessário converter o valor das variáveis em float.
+
+### Parte 3 - Análise se negativo (para delta negativa o cálculo de bhaskara não tem solução)
+Após o cálculo de Delta já é posspível analisar o valor de Delta, dessa forma a primeira análise é se o valor resoltou em negativo, pois se for o caso a equação não terá solução, sendo necessário encerrar o código.
+
+```
+if delta<0:
+    print(f"A resolução não é possível pois o valor de Delta é negativo no valor de {delta}.")
+```
+
+Para isso analizamos usando a função if. E caso seja verdadeira a função irá retornar a seguinte mensagem `A resolução não é possível pois o valor de Delta é negativo no valor de {delta}.`.
+
+### Parte 4 - Análise se = 0 ou positivo
+Caso o valor de Delta for diferente de negativo então há duas opções, se ele for igual a 0 terá apenas um valor para X, mas caso o Delta for igual a positivo então será necessário calcular o valor de X1 e X2.
+Assim o código continua ...
+
+```
+else:
+    if delta == 0:
+        X = (float(B) * -1)/ 2 * float(A)
+        print(f"O valor de delta é 0, portanto o valor de X é {X}")
+
+    else:
+        Raiz = delta ** (1/2)
+        X1 = (float(B) * -1 + Raiz)/ 2 * float(A)
+        X2 = (float(B) * -1 - Raiz)/ 2 * float(A)
+        print(f"O valor de Delta é {delta}, sua raiz quadrada é {Raiz}, portanto o valor de X1 é {X1} e o valor de X2 é {X2}")
+```
+Acima, a linha `if delta == 0` analisa se o delta é igual a 0.Caso a afirmação seja verdadeira será executado o cálculo que está no bloco abaixo, `X = (float(....`. Caso contrário o código irá executar o bloco dentro de `else: `.
+
+### Parte 5 - Declaração de resultados
+
+Para a declaração dos resultados para o usuário foi utilizada a função print com formatação de f string como a seguir:
+
+```
+print(f"A resolução não é possível pois o valor de Delta é negativo no valor de {Delta}.")
+
+print(f"O valor de delta é 0, portanto o valor de X é {X}")
+
+print(f"O valor de Delta é {Delta}, sua raiz quadrada é {Raiz}, portanto o valor de X1 é {X1} e o valor de X2 é {X2}")
+```
+
+### **Código Completo:**
+```
+#Input para inserir os dados das variáveis para o cálculo
+A = input("Escreva o valor de A: ")
+B = input("Escreva o valor de B: ")
+C = input("Escreva o valor de C: ")
+
+#Calcular o valor de delta
+Delta = (float(B)**2) - (4 * float(A) * float(C))
+print(Delta)
+
+#Analisa qual situação o delta se encaixa, negativo, positivo ou igual a 0
+if Delta<0:
+    print(f"A resolução não é possível pois o valor de Delta é negativo no valor de {Delta}.")
+else:
+    #Se o delta for diferente de negativo então ele realiza o cálculo para 0 e para delta positivo
+    if Delta == 0:
+        X = (float(B) * -1)/ 2 * float(A)
+        print(f"O valor de delta é 0, portanto o valor de X é {X}")
+
+    else:
+        Raiz = Delta ** (1/2)
+        X1 = (float(B) * -1 + Raiz)/ 2 * float(A)
+        X2 = (float(B) * -1 - Raiz)/ 2 * float(A)
+        print(f"O valor de Delta é {Delta}, sua raiz quadrada é {Raiz}, portanto o valor de X1 é {X1} e o valor de X2 é {X2}")
+```
+> Para acessar o código no arquivo python do repósitório [Clique Aqui](https://github.com/aureaangelo/Bootcamp-Python-Data-Analytcs-DIO/blob/main/Introducao-a-Ciencia-de-Dados-com-Python/Python_Desafio_4-Bhaskara.py)
+
