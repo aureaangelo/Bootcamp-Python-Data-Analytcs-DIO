@@ -1,5 +1,5 @@
 
-# **Resumo Introdução ao Python**
+# **Resumo Introdução a Ciência de Dados com Python**
 
 ## **Instalação do Python**
 [Para a Instalação acesse o site oficial](https://www.python.org)
