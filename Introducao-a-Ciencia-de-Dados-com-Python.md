@@ -192,6 +192,7 @@ nome = input("Informe o seu nome: ")
 
 ```
 Para saber mais sobre a função input acesse: [Aqui](https://docs.python.org/3/library/functions.html#input) .
+
 ### Exibindo valores com a função print
 
 A função builtin print é utilizada quando queremos exibir dados na saída padrão (tela). Ela recebe um argumento obrigatório e 4 argumentos opicionais (sep, end, file, flush). Todos os objetos são convertidos em string, separados por sep e terminados em end. A string final é exibida ao usuário. Exemplo:
@@ -211,4 +212,551 @@ print(nome, sobrenome, sep="-")
 Para saber mais sobre a função print acesse: [Aqui](https://docs.python.org/3/library/functions.html#print).
 
 
+## **Operadores aritméticos**
+
+Os operadores executam operações matemáticas, como adição, subtração, multiplicação, etc.
+
+## Adição, subtração, multiplicação
+
+```
+print(1 + 1) #adição
+>>> 2
+
+print(10 - 2) #subtração
+>>> 8
+
+print(4 * 3) #multiplicação
+>>> 12
+
+```
+
+## Divisão e divisão inteira
+```
+print(3 / 2) #divisão normal
+print(3 // 2) #divisão inteira
+>>> 1.5
+>>> 1
+
+```
+
+## Módulo 
+Faz a divisão dos números e retorna o valor restante.
+
+```
+print(10 % 3)
+>>> 1
+```
+
+## Exponenciação
+```
+print(4 ** 2)
+>>> 16
+
+```
+
+## **Precedência dos operadores**
+No Python a Precedência de operadores ocorre da mesma forma que a tradicional utilizada na matemática, a seguir está representada a ordem correta:
+
+  1. Parentesis
+  2. Expoentes
+  3. Multiplicações e Divisões
+  4. Somas e Subtrações
+
+## **OPERADORES DE COMPARAÇÃO**
+São utilizados para comparar dois valores.
+
+### Igual (==)
+```
+saldo = 100
+saque = 200
+
+print(saldo == saque)
+>>> False
+```
+
+### Diferente (!=)
+```
+saldo = 100
+saque = 200
+
+print(saldo != saque)
+>>> True
+```
+
+### Maior ou Maior Igual (>, >=)
+```
+saldo = 100
+saque = 200
+
+print(saldo > saque)
+>>> False
+```
+```
+saldo = 100
+saque = 100
+
+print(saldo >= saque)
+>>> True
+```
+
+### Menor ou Menor Igual (<, <=)
+```
+saldo = 100
+saque = 200
+
+print(saldo < saque)
+>>> True
+```
+
+## **OPERADORES DE ATRIBUIÇÃO**
+
+### Atribuição simples
+
+```
+saldo = 50
+print(saldo)
+```
+
+## Atribuições compostas
+Atribuições podem ser feitas por todos os operadores, adicionando o sinal de igual na frente.
+
+```
+Saldo = 500
+Saldo += 200 #Adição
+>>> 700
+
+Saldo = 500
+Saldo -= 200 #Subtração
+>>> 300
+
+Saldo = 500
+Saldo *= 2 #Multiplicação
+>>> 1000
+
+Saldo = 500
+Saldo /= 2 #Divisão
+>>> 250.0
+
+Saldo = 500
+Saldo //= 2 #Divisão inteira
+>>> 250
+
+Saldo = 500
+Saldo %= 480 #Módulo
+>>> 20
+
+Saldo = 4
+Saldo **= 2 #Exponenciação
+>>> 16
+
+```
+
+## **OPERADORES LOGICOS**
+
+### Operador E (and)
+```
+saldo = 1000
+saque = 200
+limite = 100
+
+print(saldo >= saque and saque <= limite)
+>>> False
+
+```
+
+### Operador OU (or)
+```
+saldo = 1000
+saque = 200
+limite = 100
+
+saldo >= saque or saque <= limite
+>>> True
+
+```
+
+### Operador de negação (not)
+
+```
+contatos_emergencia = []
+not 1000 > 1500
+>>> True
+
+not contatos_emergencia
+>>> True
+
+not "saque 1500;"
+>>> False
+
+not ""
+>>> True
+
+```
+
+## **OPERADORES DE IDENTIDADE**
+Verifica se um valor é igual ao outro. Exemplos:
+```
+
+curso = "Curso de Python"
+nome_curso = curso
+
+saldo, limite = 200, 200
+
+print(curso is nome_curso)
+>>> True
+
+print(curso is not nome_curso)
+>>> False
+
+print(saldo is limite)
+>>> True
+
+```
+
+## **OPERADORES DE ASSOCIAÇÃO**
+Verifica se o valor está em algum lugar. Exemplos:
+```
+
+frutas = ["laranja", "uva", "limão"]
+
+print("limão" in frutas)
+>>> True
+
+print("limão" not in frutas)
+>>> False
+
+print("abacaxi" in frutas)
+>>> False
+
+```
+
+## **IDENTAÇÃO E BLOCOS**
+Como o python utiliza a identação do código para a delimitação de blocos de comando?
+
+O papel da identação no código é facilitar a legibilidade e manutenção do mesmo, mas no python ela também exerce um papel mais importante, através da identação o interpretador consegue determinar onde o bloco se inicia e onde ele termina.
+
+Exemplo no python:
+
+```
+def sacar(valor):
+    saldo = 500
+    if saldo >= valor:
+        print("valor sacado")
+    else:
+        print("Sem dinheiro no caixa")
+        
+print("Obrigada por ser nosso cliente!")
+
+sacar(100)
+
+```
+
+A cada 4 espaços é identificado um novo bloco.
+
+## **ESTRUTURAS CONDICIONAIS**
+
+### Estrutura IF e ELSE
+A estrutura if e else é utilizada para a comparação entre variáveis ou valores, ela funciona analizando uma condição e retorna um valor se a condição for verdadeira e retorna outro valor caso seja falsa. Exemplo:
+
+```
+saldo = 1000.0
+saque = float(input("Informe o valor do saque: "))
+
+if saque <= saldo:
+    saldo_restante = saldo - saque
+    print(f"Saldo Efetuado com sucesso! Saldo Restante: R$ {saldo_restante}")
+else:
+    print(f"Saldo insuficiente para saque no valor de R$ {saque}")
+```
+### Estrutura IF/ELIF/ELSE
+A estrutura if elif e else é utilizada para fazer mais de uma comparação na mesma estrutura if. Exemplo:
+
+```
+nota = float(input("Informe a sua nota: "))
+
+if nota >= 9:
+    print("Aprovado com Excelência!")
+
+elif nota >= 6:
+    print("Aprovado.")
+
+else:
+    print("Reprovado.")
+
+```
+
+### Estrutura condicional alinhada
+
+Dentro de uma estrutura condicional é possível inserir if dentro de if sem problemas, apenas é preciso se atentar a identação de bloco.
+
+### Estrutura condicional Ternária
+Verificações simples em 1 linha, ela é utilizada quando é preciso fazer uma verificação simples que exige um if, mas que não é nescessário utilizar a estrutura completa.
+
+```
+saque = 600
+saldo = 500
+
+status = "Sucesso" if saldo >= saque else "Falha"
+
+print(f"{status} ao realizar o saque!")
+```
+
+## **ESTRUTURAS DE REPETIÇÃO**
+
+### Estrutura for
+
+1. Exemplo Exponenciação
+No exemplo a seguir foi criada uma estrutura for que pega cada item da lista `lista` e exibe através da função `print` o número elevado a 2.
+```
+lista = [1,2,3,4,5,6,7,8,9]
+
+for multiplicacao in lista:
+    
+    print(multiplicacao ** 2)
+
+>>> 1
+>>> 4
+>>> 9
+>>> 16
+>>> 25
+>>> 36
+>>> 49
+>>> 64
+>>> 81
+```
+2. Exemplo sequencia de números
+Neste exemplo a função for vai iterar cada número da sequencia range iniciando de 0 até o número 4.
+```
+for i in range(5):
+    print(i)
+
+>>> 0
+>>> 1
+>>> 2
+>>> 3
+>>> 4
+```
+3. Exemplo Letras
+O exemplo a seguir analisa cada caracter que foi cadastrado pelo usuário e retorna apenas aqueles que constam na variável VOGAIS. 
+```
+texto = input("Informe um texto: ")
+VOGAIS = "AEIOU"
+
+for letra in texto:
+	if letra.upper() in VOGAIS:
+		print(letra, end="")
+
+print()  # adiciona uma quebra de linha
+```
+
+
+### Estrutura range
+A função range cria uma sequência de números a partir de um início para um fim, ela recebe 3 argumentos: stop (obrigatório - responsável por indicar até quantos números a lista será criada), start (opicional - indica a partir de qual número a sequência se inicia) e step (opicional - indica o intervalo entre os números da sequência)
+```
+list(range(4))
+
+for numero in range(21):
+
+    print(numero, end=" ")
+
+>>> 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  
+
+print(" \n")
+
+for numero in range(0, 51, 5):
+    print(numero, end=" ")
+
+>>> 0 5 10 15 20 25 30 35 40 45 50 
+```
+
+### Comando While
+O comando while executa um bloco de código enquando uma condição especificada for verdadeira. Normalmente é utilizada quando não se sabe a quantidade de vezes que o loop precisa ser repetido para atingir algum resultado.
+
+1. Exemplo de contagem regressiva
+Nesse exemplo enquando o contador for maior que 0 ele vai exibir o valor e subtrair mais um número, quando chegar em 0, a mensagem a ser exibida será `Fogo!`.
+```
+contador = 5
+
+while contador > 0:
+    print(contador)
+    contador -= 1
+
+print("Fogo!")`
+
+>>> 5
+>>> 4
+>>> 3
+>>> 2
+>>> 1
+>>> Fogo!
+
+```
+2. Exemplo Menu Bancário
+Este código cria um simples sistema de menu para operações bancárias. 
+```
+opcao = -1
+while opcao != 0:
+    opcao = int(input("[1] Sacar \n[2] Extrato \n[0] Sair \n: "))
+        
+    if opcao == 1:
+        print("Sacando...")
+    elif opcao == 2:
+        print("Exibindo o extrato...")
+else:
+    print("Obrigado por usar nosso sistema bancário, até logo!")
+```
+
+3. Exemplo 
+Enquanto o usuário digitar qualquer valor que não seja 10 o código irá se repetir, mas no momento que o usuário digitar 10 o comando irá se encerrar.
+```
+while True:
+    numero = int(input("Informe um número: "))
+    if  numero == 10:
+        break
+    
+    print(numero)
+
+```
+
+## **STRING E FATIAMENTO**
+
+### Métodos mais úteis da classe STRING
+```
+curso = "     pYthOn   "
+ 
+ # Maiúscula, Minúscula e Título
+ print(curso.upper()) #Maiúscula
+>>> "     PYTHON   "
+ 
+ print(curso.lower()) #Minúscula
+>>> "     python   "
+ 
+ print(curso.title()) #Formato de Título, a primeira em maiúsculo e o restante em minúsculo
+>>> "     Python   "
+ 
+
+ # Eliminando espaços em branco da esquerda e direita
+ print(curso.strip()) #Retira os espaços da direita e esquerda
+>>> "pYthOn"
+ 
+ print(curso.lstrip()) #Retira os espaços da esquerda
+>>> "pYthOn   "
+ 
+ print(curso.rstrip()) #Retira os espaços da direita
+ >>> "     pYthOn"
+ 
+```
+
+### Junções e centralização
+
+```
+
+curso = "Python"
+
+
+print(curso.center(10,"#")) #Centraliza a string em 10 caracteres e adiciona # para isso
+>>> ##Python##
+
+print(".".join(curso)) #Adiciona . entre cada caracter da string
+>>> P.y.t.h.o.n
+
+```
+
+###  **Interpolação de variáveis**
+
+### Old Stile % (Não recomendada)
+```
+nome = "Áurea"
+idade = 21
+linguagem = "Python"
+
+print("Olá, me chamo %s. Tenho %d anos de idade, e estou matriculada no curso de %s. Método old." % (nome, idade, linguagem))
+
+>>> Olá, me chamo Áurea. Tenho 21 anos de idade, e estou matriculada no curso de Python. Método old.
+```
+
+###  Método format
+```
+nome = "Áurea"
+idade = 21
+linguagem = "Python"
+
+# print("Olá, me chamo {}. Tenho {} anos de idade, e estou matriculada no curso de {}. Método format sem nomeação.".format(nome, idade, linguagem))
+>>> Olá, me chamo Áurea. Tenho 21 anos de idade, e estou matriculada no curso de Python. Método format sem nomeação.
+
+# print("Olá, me chamo {2}. Tenho {1} anos de idade, e estou matriculada no curso de {0}. Método format com índice.".format(linguagem, idade, nome))
+>>> Olá, me chamo Áurea. Tenho 21 anos de idade, e estou matriculada no curso de Python. Método format com índice.
+
+# print("Olá, me chamo {name}. Tenho {age} anos de idade, e estou matriculada no curso de {linguage}. Método format nomeado.".format(name=nome, age=idade, linguage=linguagem))
+>>> Olá, me chamo Áurea. Tenho 21 anos de idade, e estou matriculada no curso de Python. Método format nomeado.
+
+```
+
+###  Método f string
+```
+nome = "Áurea"
+idade = 21
+linguagem = "Python"
+
+print(f"Olá, me chamo {nome}. Tenho {idade} anos de idade, e estou matriculada no rso de {linguagem}. Método f string")
+>>> Olá, me chamo Áurea. Tenho 21 anos de idade, e estou matriculada no curso de Python. Método f string
+
+PI = 3.14159
+print(f"O valor de PI é {PI:.2F}")
+>>> O valor de PI é 3.14
+
+print(f"O valor de PI é {PI:10.2F}")
+>>> O valor de PI é       3.14
+
+```
+
+
+### Fatiamento de Strings
+```
+nome = "Aurea de Souza Angelo"
+
+print(nome[0])
+>>> A
+
+print(nome[:6])
+>>> Aurea
+
+print(nome[6:])
+>>> de Souza Angelo
+
+print(nome[6:12])
+>>> de Sou
+
+print(nome[1:2:3])
+>>> ure
+
+print(nome[:])
+>>> Aurea de Souza Angelo
+
+print(nome[::-1])
+>>> olegnA azuoS ed aeruA
+```
+
+### String de múltiplas linhas ou triplas
+```
+nome = "Áurea"
+
+mensagem = f'''
+Olá, meu nome é {nome},
+estou aprendendo Python.
+
+Essa mensagem foi feita com quebra de página através do recurso de strings múltiplas
+'''
+print(mensagem)
+>>>
+
+Olá, meu nome é Áurea,
+estou aprendendo Python.
+
+Essa mensagem foi feita com quebra de página através do recurso de strings múltiplas
+
+```
+> Para saber mais sobre as funções com variáveis strings [Clique Aqui](https://docs.python.org/pt-br/3/library/string.html)
+> Material adicional [Aqui](https://docs.python.org/pt-br/3/library/stdtypes.html#textseq
+).
 
